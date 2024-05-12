@@ -2,8 +2,12 @@ package aed;
 
 class ArregloRedimensionableDeRecordatorios implements SecuenciaDeRecordatorios {
 
+    private Recordatorio[] elements;
+    private int size;
+
     public ArregloRedimensionableDeRecordatorios() {
-        throw new UnsupportedOperationException("No implementada aun");
+        elements = new Recordatorio[10]; //que tamaño le pongo?
+        size = 0;
     }
 
     public ArregloRedimensionableDeRecordatorios(ArregloRedimensionableDeRecordatorios vector) {
@@ -11,11 +15,26 @@ class ArregloRedimensionableDeRecordatorios implements SecuenciaDeRecordatorios 
     }
 
     public int longitud() {
-        throw new UnsupportedOperationException("No implementada aun");
+        return longitud;
     }
 
     public void agregarAtras(Recordatorio i) {
-        throw new UnsupportedOperationException("No implementada aun");
+
+        if (longitud == elements.length()){
+
+            Recordatorio[] newArray = new Recordatorio[elements.length() + 1];
+
+            for(int i = 0; i < elements.length(); i++){
+                
+                newArray[i] = elements[i];
+            }
+
+            elements = newArray;
+        }else{
+
+            elements[size] = i;
+            size++;
+        }
     }
 
     public Recordatorio obtener(int i) {

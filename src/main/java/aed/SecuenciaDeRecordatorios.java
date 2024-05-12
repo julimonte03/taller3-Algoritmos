@@ -7,7 +7,6 @@ interface SecuenciaDeRecordatorios {
      * 
      */
     public int longitud(){
-        return
     }
 
     /**
