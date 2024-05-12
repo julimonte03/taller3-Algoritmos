@@ -11,7 +11,7 @@ public class Fecha {
     }
 
     public Fecha(Fecha fecha) {
-        throw new UnsupportedOperationException("No implementada aun");
+        this.fecha = fecha;
     }
 
     public Integer dia() {
@@ -30,17 +30,13 @@ public class Fecha {
     @Override
     public boolean equals(Object otra) {
 
-        boolean esNull = (otra == null);
+        boolean esNull = (otra === null);
         
         boolean esDiferente = (otra.getClass() != this.getClass());
 
-        if (esNull || esDiferente){
-            return false;
-        }
+        if (esNull || esDiferente) return false;
 
         Fecha otraFecha = (Fecha) otra;
-
-        return otraFecha.dia == this.dia && otraFecha.mes == this.mes;
     }
 
     public void incrementarDia() {

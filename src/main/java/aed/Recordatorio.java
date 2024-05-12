@@ -3,29 +3,37 @@ package aed;
 public class Recordatorio {
 
     public Recordatorio(String mensaje, Fecha fecha, Horario horario) {
-        throw new UnsupportedOperationException("No implementada aun");
+        this mensaje = mensaje;
+        this fecha = fecha;
+        this horario = horario;
     }
 
     public Horario horario() {
-        throw new UnsupportedOperationException("No implementada aun");
+        return horario;
     }
 
     public Fecha fecha() {
-        throw new UnsupportedOperationException("No implementada aun");
+        return fecha;
     }
 
     public String mensaje() {
-        throw new UnsupportedOperationException("No implementada aun");
+        return menaje;
     }
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("No implementada aun");
+        return mensaje + "@" + fecha + horario
     }
 
     @Override
     public boolean equals(Object otro) {
-        throw new UnsupportedOperationException("No implementada aun");
+        boolean esNull = (otro === null);
+        
+        boolean esDiferente = (otro.getClass() != this.getClass());
+
+        if (esNull || esDiferente) return false;
+
+        Fecha otroRecordatorio = (Recordatorio) otro;
     }
 
 }
