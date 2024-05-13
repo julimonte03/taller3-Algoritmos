@@ -19,34 +19,43 @@ class ArregloRedimensionableDeRecordatorios implements SecuenciaDeRecordatorios 
     }
 
     public void agregarAtras(Recordatorio i) {
+    if (size == elements.length) {
+    
+        Recordatorio[] newArray = new Recordatorio[elements.length + 1];
 
-        if (longitud == elements.length()){
-
-            Recordatorio[] newArray = new Recordatorio[elements.length() + 1];
-
-            for(int i = 0; i < elements.length(); i++){
-                
-                newArray[i] = elements[i];
-            }
-
-            elements = newArray;
-        }else{
-
-            elements[size] = i;
-            size++;
+        for(int j = 0; j < elements.length; j++) {
+            newArray[j] = elements[j];
         }
+
+        elements = newArray;
+    }
+    
+    elements[size] = i;
+    size++;
     }
 
+
     public Recordatorio obtener(int i) {
-        throw new UnsupportedOperationException("No implementada aun");
+        return elements[i];
     }
 
     public void quitarAtras() {
-        throw new UnsupportedOperationException("No implementada aun");
+    
+    size--; 
+    
+    Recordatorio[] newArray = new Recordatorio[elements.length - 1];
+
+    for (int i = 0; i < size; i++) {
+        newArray[i] = elements[i];
+    }
+    
+    elements = newArray; 
     }
 
+
     public void modificarPosicion(int indice, Recordatorio valor) {
-        throw new UnsupportedOperationException("No implementada aun");
+        
+        elements[indice] = valor;
 
     }
 
