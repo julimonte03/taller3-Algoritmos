@@ -6,7 +6,9 @@ public class Agenda {
     private int size;
 
     public Agenda(Fecha fechaActual) {
-        return this.fechaActual;
+        this fechaActual = new Fecha(fechaActual);
+        this.recordatorios = new Recordatorio[];
+        this.size = 0;
     }
 
     public void agregarRecordatorio(Recordatorio recordatorio) {
@@ -24,17 +26,22 @@ public class Agenda {
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("No implementada aun");
 
+        String result = fechaActual.toString() + "\n" + "=====\n";
+        for (int i = 0; i < size; i++) {
+            result += recordatorios[i].toString() + "\n";
+        }
+        return result;
     }
+    
 
     public void incrementarDia() {
-        throw new UnsupportedOperationException("No implementada aun");
+        this.fechaActual.incrementarDia();
 
     }
 
     public Fecha fechaActual() {
-        throw new UnsupportedOperationException("No implementada aun");
+        return new Fecha(this.fechaActual);
     }
 
 }
