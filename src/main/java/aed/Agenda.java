@@ -1,13 +1,24 @@
 package aed;
 
 public class Agenda {
+    private Fecha fechaActual;
+    private Recordatorio[] recordatorios;
+    private int size;
 
     public Agenda(Fecha fechaActual) {
-        throw new UnsupportedOperationException("No implementada aun");
+        return this.fechaActual;
     }
 
     public void agregarRecordatorio(Recordatorio recordatorio) {
-        throw new UnsupportedOperationException("No implementada aun");
+
+        if(size == recordatorios.length){
+            Recordatorio[] newArray = Recordatorio[recordatorios.length + 1];
+            for(int i; i < size; i++){
+                newArray[i] = recordatorio[i];
+            }
+            recordatorios = newArray;
+        }
+        recordatorios[size++] = recordatorio;
 
     }
 

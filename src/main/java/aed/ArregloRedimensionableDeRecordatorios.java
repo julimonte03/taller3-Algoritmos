@@ -6,16 +6,20 @@ class ArregloRedimensionableDeRecordatorios implements SecuenciaDeRecordatorios 
     private int size;
 
     public ArregloRedimensionableDeRecordatorios() {
-        elements = new Recordatorio[10]; //que tamaño le pongo?
+        elements = new Recordatorio[]; //que tamaño le pongo?
         size = 0;
     }
 
     public ArregloRedimensionableDeRecordatorios(ArregloRedimensionableDeRecordatorios vector) {
-        throw new UnsupportedOperationException("No implementada aun");
+        this.elements = new Recordatorio[vector.elements.length];
+        for (int i = 0; i < vector.size; i++) {
+            this.elements[i] = vector.elements[i];
+        }
+        this.size = vector.size;
     }
 
     public int longitud() {
-        return longitud;
+        return size;
     }
 
     public void agregarAtras(Recordatorio i) {
@@ -60,7 +64,15 @@ class ArregloRedimensionableDeRecordatorios implements SecuenciaDeRecordatorios 
     }
 
     public ArregloRedimensionableDeRecordatorios copiar() {
-        throw new UnsupportedOperationException("No implementada aun");
+        ArregloRedimensionableDeRecordatorios copia = new ArregloRedimensionableDeRecordatorios();
+    
+        for (int i = 0; i < this.size; i++) {
+            copia.elements[i] = this.elements[i];
+        }
+    
+        copia.size = this.size;
+    
+        return copia;
     }
-
+    
 }
