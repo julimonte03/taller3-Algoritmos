@@ -6,42 +6,39 @@ public class Agenda {
     private int size;
 
     public Agenda(Fecha fechaActual) {
-        this fechaActual = new Fecha(fechaActual);
-        this.recordatorios = new Recordatorio[];
+        this.fechaActual = new Fecha(fechaActual);
+        this.recordatorios = new Recordatorio[10];
         this.size = 0;
     }
 
     public void agregarRecordatorio(Recordatorio recordatorio) {
-
-        if(size == recordatorios.length){
-            Recordatorio[] newArray = Recordatorio[recordatorios.length + 1];
-            for(int i; i < size; i++){
-                newArray[i] = recordatorio[i];
+        if (size == recordatorios.length) {
+            Recordatorio[] newArray = new Recordatorio[recordatorios.length * 2];
+            for (int i = 0; i < size; i++) {
+                newArray[i] = recordatorios[i];
             }
             recordatorios = newArray;
         }
         recordatorios[size++] = recordatorio;
-
     }
 
     @Override
     public String toString() {
-
-        String result = fechaActual.toString() + "\n" + "=====\n";
+        StringBuilder result = new StringBuilder();
+        result.append(fechaActual.toString()).append("\n=====\n");
         for (int i = 0; i < size; i++) {
-            result += recordatorios[i].toString() + "\n";
+            if (recordatorios[i].fecha().equals(fechaActual)) {
+                result.append(recordatorios[i].toString()).append("\n");
+            }
         }
-        return result;
+        return result.toString();
     }
-    
 
     public void incrementarDia() {
         this.fechaActual.incrementarDia();
-
     }
 
     public Fecha fechaActual() {
         return new Fecha(this.fechaActual);
     }
-
 }

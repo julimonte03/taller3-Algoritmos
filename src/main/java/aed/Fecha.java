@@ -11,7 +11,8 @@ public class Fecha {
     }
 
     public Fecha(Fecha fecha) {
-        this.fecha = fecha;
+        this.dia = fecha.dia;
+        this.mes = fecha.mes;
     }
 
     public Integer dia() {
@@ -29,14 +30,17 @@ public class Fecha {
 
     @Override
     public boolean equals(Object otra) {
-
-        boolean esNull = (otra === null);
-        
-        boolean esDiferente = (otra.getClass() != this.getClass());
-
-        if (esNull || esDiferente) return false;
-
+        if (otra == null) {
+            return false;
+        }
+        if (this == otra) {
+            return true;
+        }
+        if (this.getClass() != otra.getClass()) {
+            return false;
+        }
         Fecha otraFecha = (Fecha) otra;
+        return this.dia == otraFecha.dia && this.mes == otraFecha.mes;
     }
 
     public void incrementarDia() {
@@ -45,19 +49,16 @@ public class Fecha {
 
         int diasEnMes = diasEnMes(mesActual);
 
-        if(diaActual  == diasEnMes && mesActual != 12){
-
+        if (diaActual == diasEnMes) {
             diaActual = 1;
             mesActual++;
-
-            if (mesActual == 12) {
+            if (mesActual > 12) {
                 mesActual = 1;
             }
-
-        }else{
+        } else {
             diaActual++;
         }
-        
+
         this.dia = diaActual;
         this.mes = mesActual;
     }
@@ -71,5 +72,4 @@ public class Fecha {
         };
         return dias[mes - 1];
     }
-
 }

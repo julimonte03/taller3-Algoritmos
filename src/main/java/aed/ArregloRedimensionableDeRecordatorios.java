@@ -6,7 +6,7 @@ class ArregloRedimensionableDeRecordatorios implements SecuenciaDeRecordatorios 
     private int size;
 
     public ArregloRedimensionableDeRecordatorios() {
-        elements = new Recordatorio[]; //que tamaño le pongo?
+        elements = new Recordatorio[10]; //que tamaño le pongo?
         size = 0;
     }
 

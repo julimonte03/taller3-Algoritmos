@@ -6,8 +6,7 @@ interface SecuenciaDeRecordatorios {
      * Devuelve el largo de la secuencia.
      * 
      */
-    public int longitud(){
-    }
+    public int longitud();
 
     /**
      * Agrega un elemento al final de la secuencia.
